@@ -491,6 +491,7 @@ Como subproduto obtém-se:
 \section{PI AT MONTE CARLO}
 
 n= 100000
+\newline
 
 m= 1000
 
@@ -499,6 +500,7 @@ var = numeric(m)
 for (i in 1:m) var[i] = single\_shot(n)
 
 single\_shot = function(n)
+\newline
 
 x= runif(n)
 
@@ -509,47 +511,61 @@ z= x.x + y.y
 ins= which(z<=1)
 
 pi= 4.length(ins)/n
+\newline
 
 plot(x[ins], y[ins], col= "red", pch = 19, cex =0.1, xlim=c(0,1), ylim=c(0,1))
 
 points(x[-ins], y[-ins], cd = "blue")
+\newline
 
 mean(var)
 
 sd(var) / sqrt(m)
+\newline
 
 Exercício: Determine o "valor médio" de $\pi$. Interprete estatísticamente o resultado.
+\newline
 
 Exercício: Implemente Pi via Monte Carlo em C
+\newline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 9 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\#include <stdio.h>
+\#include <stdio.h> 
 
-\#include <stdlib.h>
+\#include <stdlib.h> 
 
 \#include <time.h>
+\newline
 
 double x,y;
+\newline
 
 unsigned long long i, j;
+\newline
 
 j= 0;
+\newline
 
 stand(time(0));
+\newline
 
 for (i=1; i<=n; i++) \{
 
 x = (double) rand() / RAND\_MAX;
 
 y=
+\newline
 
 if(x*x + y*y <= 1) \{
 
 j += 1;
 \}
+\newline
 \}
+\newline
 
 return 4 * (double) j/n;
+\newline
 
 printf("\%1.20f$\backslash$ n", t);
 
