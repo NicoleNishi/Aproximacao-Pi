@@ -1,0 +1,404 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+% usado para definir a língua que o documento será escrito
+
+\usepackage[lmargin=3cm, tmargin=3cm, rmargin=2cm, bmargin=2cm]{geometry}
+% margem
+
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath, amssymb, inputenc, cancel}
+% 
+
+\usepackage{graphicx, xcolor}
+% adicionar gráficos, adicionar cores
+
+\usepackage{tikz, tkz-euclide}
+% usado para fazer as formas geométricas
+
+\usepackage{scalerel, pict2e, tkz-euclide}
+% para ajustar a forma, melhora a qualidade da forma, usado para formar angulos
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{APROXIMAÇÕES PARA $\pi$}
+
+\textbf{Definição:}
+
+\begin{figure} [h!]
+    \begin{minipage}[!] {0.45\linewidth}
+        \begin{tikzpicture}
+            \coordinate (N) at (0,0);
+            \coordinate (O) at (4,0);
+            \coordinate (P) at (0,-4);
+            \coordinate (Q) at (4,-4);
+            \coordinate (R) at (0,-2);
+            \coordinate (S) at (4,-2);
+            \coordinate[label=right:$L$] (L) at (2,0.5);
+            \coordinate[label=right:$C$] (C) at (2.5,-0.5);
+            \coordinate[label=right:$D$] (D) at (2,-2.5);
+        
+            \draw[->] (N) -- (O);
+            \draw[->] (O) -- (Q);
+            \draw[->] (Q) -- (P);
+            \draw[->] (P) -- (N);
+            \draw[->] (R) -- (S);
+        
+            \draw[thick] (2, -2) circle (2);
+        \end{tikzpicture}
+    \end{minipage}
+    \begin{minipage} [!] {0.45\linewidth}
+        \[\pi = \frac {C} {D}\]
+        
+        \[2D < C < 4L = 4D\]
+
+        \[2 < \frac {C}{D} < 4 \Rightarrow 2 < \pi < 4\]
+    \end{minipage}
+\end{figure}
+
+\begin{tikzpicture}
+    \coordinate (T) at (-2,0);
+    \coordinate (U) at (2,0);
+    \coordinate (V) at (0,2);
+    \coordinate (W) at (0,-2);
+    \coordinate[label=right:$L$] (L) at (0,2.5);
+    \coordinate[label=left:$\frac{D}{2}$] (D) at (0,0.5);
+
+    \draw[thick] (-2, -2) rectangle (2, 2);
+    \draw[thick] (0, 0) circle (2);
+    \draw[thick] (0, 2) -- (2, 0) -- (0, -2) -- (-2, 0) -- cycle;
+    \draw[thick] (0, 0) -- (2, 0) -- (0, 2) -- cycle;
+    \draw[loosely dotted] (T) -- (U);
+    \draw[loosely dotted] (V) -- (W);
+    
+\end{tikzpicture}
+
+\[
+4l < C < 4L = 4D
+\]
+
+\[
+l^2 = 2(\frac{L}{2})^2 = \cancel{2}(\frac{L^2}{\cancel{4}}) = \frac{D^2}{2} \Rightarrow l =  \frac{D}{\sqrt{2}} = \frac{\sqrt{2}}{2}D
+\]
+
+{Pelo Teorema de Pitágoras}
+
+\[
+\therefore \cancel{4} \frac{\sqrt{2}}{\cancel{2}}D < C < 4D
+\]
+
+\[
+2\sqrt{2} < \frac{C}{D} < 4 \Rightarrow 2\sqrt{2} < \pi < 4
+\]
+
+\[
+\approx 2,82
+\]
+
+\[
+6\alpha = 2\pi \Rightarrow \alpha = \frac{\cancel{2}\pi}{\cancel{6}} = \frac{\pi}{3}
+\]
+
+{Por outro lado,} 
+
+\[
+\alpha + 2 \beta = \pi \Rightarrow \cancel{2}\beta = \pi - \alpha = \pi - \frac{\pi}{3} = \cancel{2}\frac{\pi}{3} \Rightarrow \beta = \frac{\pi}{3}
+\]
+
+
+{$\therefore \alpha = \beta \Rightarrow$ Triângulo equilátero $\Rightarrow l= \frac{D}{2}$}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\[
+L^2 = (\frac{D}{2})^2 + (\frac{L}{2})^2 = \frac{D^2}{4} + \frac{L^2}{4}
+\]
+
+\[
+\frac{3}{\cancel{4}}L^2 = L^2 (1-\frac{1}{4}) = \frac{D^2}{\cancel{4}} \Rightarrow L = \frac{D}{\sqrt{3}}
+\]
+
+\[
+6l < C < 6L
+\]
+
+\[
+\cancel{6}\frac{D}{\cancel{2}} < C < 6\frac{D}{\sqrt{3}} = \frac{2.3}{\sqrt{3}}D = \frac{2\sqrt{3}\cancel{\sqrt{3}}}{\cancel{\sqrt{3}}}D
+\]
+
+\[
+3 < \frac{C}{D} < 2\sqrt{3} \Rightarrow 3 < \pi < 2\sqrt{3}
+\]
+
+\[
+\approx 3,46
+\] 
+
+{250 a.C. Arquimedes polígono 96 $(2^4.6)$ lados limite superior:}
+
+\[
+\pi \approx \frac{22}{7} = 3,1428571
+\]
+
+{265 d.C. Liu Hui polígono de 3072 $(2^9.6)$ lados}
+
+{480d.C. Zu Chongzhi polígono 12288 $(2^11.6)$ lados}
+
+\[
+\pi \approx \frac{355}{113} = 3,1415929
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{DUPLICAÇÃO DO QUADRADO}
+
+{Pelo Teorema de Pitágoras, tem-se}
+
+\[
+l^2 = 2 (\frac{L}{2})^2 = \cancel{2} \frac{L^2}{\cancel{4}} \Rightarrow 2l^2 = L^2
+\]
+
+{Como medir?}
+
+\[
+mu = L
+\]
+
+\[
+nu = l
+\]
+
+\[
+\therefore 2 = \frac{L^2}{l^2} = \frac{m^2 \cancel{u^2}}{n^2 \cancel{u^2}} = (\frac{m}{n})^2
+\]
+
+{Teorema: Não existe nenhum número racional r tal que $r^2 = 2$}
+
+{Demonstração: Por redução ao absurdo, suponha $r= \frac{m}{n}$ tal que:}
+
+\[
+2=r^2 = \frac{m^2}{n^2} \Rightarrow 2n = \frac{m^2}{n} \Rightarrow 2n - m = \frac{m^2}{n} - m\frac{n}{n} = \frac{m}{n} (m-n) \Rightarrow \frac{2n-m}{m-n} = \frac{m}{n}
+\]
+
+{Agora, observe que:}
+\[
+\frac{m}{2} < n \Rightarrow m < 2n
+\]
+
+\[
+n < \frac{m}{2} + \frac{m}{2} = m
+\]
+
+{$\therefore 2n-m > 0$ e $ m-n > 0$ são inteiros \underline{positivos}. Além disso, tem-se:}
+
+\[
+n < m < 2n \Rightarrow 0 < m-n < n
+\]
+
+\[
+n < m < 2n \Rightarrow 2n < 2m = m + m \Rightarrow 2n - m < m
+\]
+
+
+{$\therefore m, 2n-m,...$ é uma sequência estritamente decrescente de inteiros positivos, \underline{absurdo!}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{PROVA ALTERNATIVA:} 
+
+{Seja $(\frac{m}{n})^2 = 2$ e suponha, sem perda de generalidade, que m e n são coprimos, ou seja, $(m,n)=1$}
+
+Agora, observe que:
+
+\begin{center}
+$\frac{m^2}{n^2} = 2 \Rightarrow m^2 = 2n^2$ par 
+
+$m = 2k + 1 \Rightarrow m^2 = 4k^2 + 4k + 1 = 2k(2k + 2) + 1$ Ímpar, \underline{absurdo!}
+
+{m = 2k par}
+
+$\therefore m^2 = (2k)^2 = \cancel{4}k^2 = \cancel{2}n^2 = 2k^2$ par $\Rightarrow$ n par
+
+$\therefore n = 2h \wedge  m = 2k \Rightarrow (m,n) \ge 2$, \underline{absurdo!}
+\end{center}
+
+\underline{Colorário:} Ou a duplicação do quadrado é impossível (falso) ou existem magnitudes \underline{incomensuráveis}.
+
+Teorema: se N não é um quadrado perfeito, então $\sqrt{N}$ é irracional.
+
+Demonstração: Se $\sqrt{N} = \frac{m}{n} \Rightarrow N = \frac{m^2}{n^2} \Rightarrow m^2 = Nn^2 = Nn.n \Rightarrow n | m^2 = m.m \Rightarrow n | m$ se (m, n) = 1 
+
+Agora dado que obviamente n | n segue que (m,n) $\ge$ n
+
+$\therefore$ \underline{absurdo} ou n = 1 em cujo caso $N = m^2$ quadrado perfeito
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{àrea do Círculo}
+
+$\pi = \frac{C}{D}$
+
+$\approx\frac{C}{2}.\frac{D}{2}$
+
+$\approx\frac{C}{2}.\frac{D}{2}$
+
+Continuando com fatias menores, tem-se:
+
+\[
+A = \frac{C}{2}.\frac{D}{2} = \frac{C}{D}.\frac{D^2}{4} = \pi.(\frac{D}{2})^2
+\]
+
+Cálculo de $\pi$ usando áreas com hexágonos.
+
+\[
+l = \frac{D}{2} \therefore (\frac{D^2}{2}) = (\frac{l}{2})^2 + h^2 \Rightarrow 
+\]
+
+\[
+\Rightarrow h^2 = \frac{D^2}{4} - \frac{D^2}{4^2} = \frac{D^2}{4^2} (4-1) = \frac{3}{4^2}D^2
+\]
+
+\[
+\therefore h= \frac{\sqrt{3}}{4}D
+\]
+
+\[
+\therefore 6.l.h\frac{1}{2} = \cancel{6} \frac{\cancel{D}}{2}.\frac{\sqrt{3}}{\cancel{4}}\cancel{D}.\frac{1}{\cancel{2}} < \pi\frac{\cancel{D^2}}{\cancel{4}}
+\]
+
+\[
+\frac{3\sqrt{3}}{2} < \pi
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 6 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Por outro lado, tem-se:
+
+\[
+L= \frac{D}{\sqrt{3}}, \therefore \pi \frac{\cancel{D^2}}{4} < 6.L.h.\frac{1}{2}
+\]
+
+\[
+6.\frac{\cancel{D}}{\sqrt{3}}.\frac{\cancel{D}}{\cancel{2}}.\frac{1}{\cancel{2}}
+\]
+
+\[
+\therefore \pi < \frac{6}{\sqrt{3}} = \frac{2.3}{\sqrt{3}} = \frac{2.\cancel{\sqrt{3}}.\sqrt{3}}{\cancel{\sqrt{3}}} = 2\sqrt{3}
+\]
+
+Desta maneira resulta:
+
+\[
+\frac{3\sqrt{3}}{2} \approx 2,6 < \pi < 2\sqrt{3} \approx 3,46
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 7 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{papiro de Rhino}
+
+\[
+A \approx (\frac{D}{3})^2 (9-2) = \frac{7}{9}D^2
+\]
+
+\[
+\therefore \pi \frac{\cancel{D^2}}{4} = A \approx \frac{7}{9} \cancel{D^2}
+\]
+
+\[
+\therefore \pi \approx \frac{28}{9} = 3,1
+\]
+
+\[
+A \approx (\frac{D}{9})^2(9^2 - \cancel{4}.\frac{9}{\cancel{2}}) = \frac{D^2}{9\cancel{^2}}\cancel{9}(9-2) = \frac{7}{9}D^2
+\]
+
+No entanto, 
+
+\[
+A \approx (\frac{D}{9}^2 (9^2-\cancel{4}.\frac{9}{\cancel{2}})) = (\frac{D^2}{9} (81-18))
+\]
+
+\[
+= (\frac{D}{9})^2.63 \approx (\frac{D}{9})^2.64=(\frac{8}{9}D)^2
+\]
+
+Quadratura do cículo:
+
+\[
+L^2 = A = \frac{7}{9}D^2 \Rightarrow L = \sqrt{\frac{7}{9}}D
+\]
+
+No entanto, alternativamente: 
+
+\[
+L^2 = A = (\frac{8}{9}D)^2 \Rightarrow L=\frac{8}{9}D
+\]
+
+Como subproduto obtém-se:
+
+\[
+\pi \frac{\cancel{D^2}}{4} = A = (\frac{8}{9})^2.\cancel{D^2} \Rightarrow \pi \approx \frac{4.8^2}{9^2} = \frac{2^8}{9^2} = \frac{256}{81} \approx 3,16
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 8 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{PI AT MONTE CARLO}
+
+n= 100000
+
+m= 1000
+
+var = numeric(m)
+
+for (i in 1:m) var[i] = single\_shot(n)
+
+single\_shot = function(n)
+
+x= runif(n)
+
+y= runif(n)
+
+z= x.x + y.y
+
+ins= which(z<=1)
+
+pi= 4.length(ins)/n
+
+plot(x[ins], y[ins], col= "red", pch = 19, cex =0.1, xlim=c(0,1), ylim=c(0,1))
+
+points(x[-ins], y[-ins], cd = "blue")
+
+mean(var)
+
+sd(var) / sqrt(m)
+
+Exercício: Determine o "valor médio" de $\pi$. Interprete estatísticamente o resultado.
+
+Exercício: Implemente Pi via Monte Carlo em C
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 9 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\#include <stdio.h>
+
+\#include <stdlib.h>
+
+\#include <time.h>
+
+double x,y;
+
+unsigned long long i, j;
+
+j= 0;
+
+stand(time(0));
+
+for (i=1; i<=n; i++) \{
+
+x = (double) rand() / RAND\_MAX;
+
+y=
+
+if(x*x + y*y <= 1) \{
+
+j += 1;
+\}
+\}
+
+return 4 * (double) j/n;
+
+printf("\%1.20f$\backslash$ n", t);
+
+\end{document}
