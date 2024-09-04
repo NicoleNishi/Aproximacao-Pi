@@ -30,7 +30,7 @@
 \textbf{Definição:}
 
 \begin{figure} [h!]
-    \begin{minipage}[!] {0.45\linewidth}
+    \begin{minipage}[!] {0.4\linewidth}
         \begin{tikzpicture}
             \coordinate (N) at (0,0);
             \coordinate (O) at (4,0);
@@ -51,7 +51,7 @@
             \draw[thick] (2, -2) circle (2);
         \end{tikzpicture}
     \end{minipage}
-    \begin{minipage} [!] {0.45\linewidth}
+    \begin{minipage} [!] {0.4\linewidth}
         \[\pi = \frac {C} {D}\]
         
         \[2D < C < 4L = 4D\]
@@ -60,46 +60,77 @@
     \end{minipage}
 \end{figure}
 
-\begin{tikzpicture}
-    \coordinate (T) at (-2,0);
-    \coordinate (U) at (2,0);
-    \coordinate (V) at (0,2);
-    \coordinate (W) at (0,-2);
-    \coordinate[label=right:$L$] (L) at (0,2.5);
-    \coordinate[label=left:$\frac{D}{2}$] (D) at (0,0.5);
-
-    \draw[thick] (-2, -2) rectangle (2, 2);
-    \draw[thick] (0, 0) circle (2);
-    \draw[thick] (0, 2) -- (2, 0) -- (0, -2) -- (-2, 0) -- cycle;
-    \draw[thick] (0, 0) -- (2, 0) -- (0, 2) -- cycle;
-    \draw[loosely dotted] (T) -- (U);
-    \draw[loosely dotted] (V) -- (W);
+\begin{figure} [h!]
+    \begin{minipage}[!] {0.4\linewidth}
+        \begin{tikzpicture}
+        \coordinate (T) at (-2,0);
+        \coordinate (U) at (2,0);
+        \coordinate (V) at (0,2);
+        \coordinate (W) at (0,-2);
+        \coordinate[label=right:$L$] (L) at (0,2.5);
+        \coordinate[label=left:$\frac{D}{2}$] (D) at (0,0.5);
     
-\end{tikzpicture}
+        \draw[thick] (-2, -2) rectangle (2, 2);
+        \draw[thick] (0, 0) circle (2);
+        \draw[thick] (0, 2) -- (2, 0) -- (0, -2) -- (-2, 0) -- cycle;
+        \draw[thick] (0, 0) -- (2, 0) -- (0, 2) -- cycle;
+        \draw[loosely dotted] (T) -- (U);
+        \draw[loosely dotted] (V) -- (W);
+    
+        \end{tikzpicture}
+    \end{minipage}
+    \begin{minipage} [!] {0.4\linewidth}
+        \[4l < C < 4L = 4D\]
 
-\[4l < C < 4L = 4D\]
+        \[l^2 = 2(\frac{L}{2})^2 = \cancel{2}(\frac{L^2}{\cancel{4}}) = \frac{D^2}{2} \Rightarrow l =  \frac{D}{\sqrt{2}} = \frac{\sqrt{2}}{2}D\]
 
-\[l^2 = 2(\frac{L}{2})^2 = \cancel{2}(\frac{L^2}{\cancel{4}}) = \frac{D^2}{2} \Rightarrow l =  \frac{D}{\sqrt{2}} = \frac{\sqrt{2}}{2}D\]
+        {Pelo Teorema de Pitágoras}
 
-{Pelo Teorema de Pitágoras}
+        \[\therefore \cancel{4} \frac{\sqrt{2}}{\cancel{2}}D < C < 4D\]
 
-\[\therefore \cancel{4} \frac{\sqrt{2}}{\cancel{2}}D < C < 4D\]
+        \[2\sqrt{2} < \frac{C}{D} < 4 \Rightarrow 2\sqrt{2} < \pi < 4\]
 
-\[2\sqrt{2} < \frac{C}{D} < 4 \Rightarrow 2\sqrt{2} < \pi < 4\]
+        \[\approx 2,82\]
+    \end{minipage}
+\end{figure}
 
-\[\approx 2,82\]
+\begin{figure} [h!]
+    \begin{minipage}[!] {0.4\linewidth}
+        \begin{tikzpicture}
+            % Coordenadas dos vértices do triângulo
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (-1, 1.75);
+            \coordinate (C) at (1, 1.75);
+            
+            \draw[thick] (-2, -2) rectangle (2, 2);
+            \draw[thick] (0, 0) circle (2);
+            \draw[thick] (0:2) -- (60:2) -- (120:2) -- (180:2) -- (240:2) -- (300:2) -- cycle;
+            \draw[thick] (A) -- (B) -- (C) -- cycle;
+            
+            \draw[thick] (A) +(0.2,0.1) arc[start angle=0, end angle=100, radius=0.4];
+            \node at (0.35, -0.15) {$\alpha^\circ$};
+            \draw[thick] (B) +(0.3,-0.5) arc[start angle=-60, end angle=50, radius=0.3];
+            \node at (-1, 1.2) {$\beta^\circ$};
+        
+            \draw[loosely dotted] (T) -- (U);
+            \draw[loosely dotted] (V) -- (W);
+        \end{tikzpicture}
+    \end{minipage}
+    \begin{minipage}[!] {0.4\linewidth}
+        \[6\alpha = 2\pi \Rightarrow \alpha = \frac{\cancel{2}\pi}{\cancel{6}} = \frac{\pi}{3}\]
 
-\[6\alpha = 2\pi \Rightarrow \alpha = \frac{\cancel{2}\pi}{\cancel{6}} = \frac{\pi}{3}\]
+        {Por outro lado,} 
 
-{Por outro lado,} 
-
-\[\alpha + 2 \beta = \pi \Rightarrow \cancel{2}\beta = \pi - \alpha = \pi - \frac{\pi}{3} = \cancel{2}\frac{\pi}{3} \Rightarrow \beta = \frac{\pi}{3}\]
+        \[\alpha + 2 \beta = \pi \Rightarrow \cancel{2}\beta = \pi - \alpha = \pi - \frac{\pi}{3} = \cancel{2}\frac{\pi}{3} \Rightarrow \beta = \frac{\pi}{3}\]
 
 
-{$\therefore \alpha = \beta \Rightarrow$ Triângulo equilátero $\Rightarrow l= \frac{D}{2}$}
-
+        {$\therefore \alpha = \beta \Rightarrow$ Triângulo equilátero $\Rightarrow l= \frac{D}{2}$}
+    \end{minipage}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \[L^2 = (\frac{D}{2})^2 + (\frac{L}{2})^2 = \frac{D^2}{4} + \frac{L^2}{4}\]
 
 \[\frac{3}{\cancel{4}}L^2 = L^2 (1-\frac{1}{4}) = \frac{D^2}{\cancel{4}} \Rightarrow L = \frac{D}{\sqrt{3}}\]
