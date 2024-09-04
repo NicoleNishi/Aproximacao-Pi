@@ -183,9 +183,27 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{DUPLICAÇÃO DO QUADRADO}
 
-{Pelo Teorema de Pitágoras, tem-se}
+\begin{figure} [h!]
+    \begin{minipage}[!] {0.4\linewidth}
+        \begin{tikzpicture}
+            \coordinate[label=right:$L$] (L) at (2,4.5);
+            \coordinate[label=left:$l$] (l) at (3.7,3.5);
+        
+            \def\side{4}
+            \draw[thick] (0,0) -- (\side,0) -- (\side,\side) -- (0,\side) -- cycle;
+            \draw[thick] (\side/2,0) -- (\side,\side/2) -- (\side/2, \side) -- (0, \side/2) -- cycle;
+        
+            \draw[loosely dotted] (\side/2,0) -- (\side/2,\side);
+            \draw[thick] (0,\side/2) -- (\side,\side/2);
+        \end{tikzpicture}
+    \end{minipage}
+    \begin{minipage}[!] {0.4\linewidth}
+        {Pelo Teorema de Pitágoras, tem-se}
 
-\[l^2 = 2 (\frac{L}{2})^2 = \cancel{2} \frac{L^2}{\cancel{4}} \Rightarrow 2l^2 = L^2\]
+        \[l^2 = 2 (\frac{L}{2})^2 = \cancel{2} \frac{L^2}{\cancel{4}} \Rightarrow 2l^2 = L^2\] \newline
+
+    \end{minipage}
+\end{figure} 
 
 {Como medir?}
 
