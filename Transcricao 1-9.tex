@@ -101,6 +101,8 @@
             \coordinate (A) at (0, 0);
             \coordinate (B) at (-1, 1.75);
             \coordinate (C) at (1, 1.75);
+            \coordinate[label=right:$L$] (L) at (0,2.5);
+            \coordinate[label=right:$l$] (l) at (-1.5,0.7);
             
             \draw[thick] (-2, -2) rectangle (2, 2);
             \draw[thick] (0, 0) circle (2);
@@ -126,32 +128,58 @@
 
         {$\therefore \alpha = \beta \Rightarrow$ Triângulo equilátero $\Rightarrow l= \frac{D}{2}$}
     \end{minipage}
-\end{figure}
+\end{figure} \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure} [h!]
+    \begin{minipage}[!] {0.4\linewidth}
+        \begin{tikzpicture}
+            \coordinate[label=right:$L$] (L) at (0,2.5);
+            \coordinate[label=left:$\frac{D}{2}$] (D) at (0,1);
+            \coordinate[label=left:$L$] (l) at (1,0.6);
+        
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (-1.25, 2.);
+            \coordinate (C) at (1.25, 2);
+        
+            \draw (0:2.35) -- (60:2.35) -- (120:2.35) -- (180:2.35) -- (240:2.35) -- (300:2.35) -- cycle;
+            \draw(0,0) circle (2);
+            \draw[thick] (-2, -2) rectangle (2, 2);
+            \draw[loosely dotted] (A) -- (B) -- (C) -- cycle;
+        
+            \draw[loosely dotted] (T) -- (U);
+            \draw[loosely dotted] (V) -- (W);
+        
+        \end{tikzpicture}
+    \end{minipage}
+    \begin{minipage}[!] {0.4\linewidth}
+        \[L^2 = (\frac{D}{2})^2 + (\frac{L}{2})^2 = \frac{D^2}{4} + \frac{L^2}{4}\]
 
+        \[\frac{3}{\cancel{4}}L^2 = L^2 (1-\frac{1}{4}) = \frac{D^2}{\cancel{4}} \Rightarrow L = \frac{D}{\sqrt{3}}\]
+    \end{minipage}
+\end{figure}
 
-\[L^2 = (\frac{D}{2})^2 + (\frac{L}{2})^2 = \frac{D^2}{4} + \frac{L^2}{4}\]
-
-\[\frac{3}{\cancel{4}}L^2 = L^2 (1-\frac{1}{4}) = \frac{D^2}{\cancel{4}} \Rightarrow L = \frac{D}{\sqrt{3}}\]
-
-\[6l < C < 6L\]
+\[\therefore 6l < C < 6L\] 
 
 \[\cancel{6}\frac{D}{\cancel{2}} < C < 6\frac{D}{\sqrt{3}} = \frac{2.3}{\sqrt{3}}D = \frac{2\sqrt{3}\cancel{\sqrt{3}}}{\cancel{\sqrt{3}}}D\]
 
 \[3 < \frac{C}{D} < 2\sqrt{3} \Rightarrow 3 < \pi < 2\sqrt{3}\]
 
-\[\approx 3,46\] 
+\[\approx 3,46\]
+\newline
 
 {250 a.C. Arquimedes polígono 96 $(2^4.6)$ lados limite superior:}
 
 \[\pi \approx \frac{22}{7} = 3,1428571\]
 
-{265 d.C. Liu Hui polígono de 3072 $(2^9.6)$ lados}
+{265 d.C. Liu Hui polígono de 3072 $(2^9.6)$ lados} \newline
 
 {480d.C. Zu Chongzhi polígono 12288 $(2^11.6)$ lados}
 
 \[\pi \approx \frac{355}{113} = 3,1415929\]
+
+\newpage
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{DUPLICAÇÃO DO QUADRADO}
 
@@ -216,6 +244,8 @@ Agora dado que obviamente n | n segue que (m,n) $\ge$ n
 
 $\therefore$ \underline{absurdo} ou n = 1 em cujo caso $N = m^2$ quadrado perfeito
 
+\newpage
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{àrea do Círculo}
 
@@ -252,8 +282,11 @@ Por outro lado, tem-se:
 Desta maneira resulta:
 
 \[\frac{3\sqrt{3}}{2} \approx 2,6 < \pi < 2\sqrt{3} \approx 3,46\]
+
+\newpage
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 7 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{papiro de Rhino}
+\section{Papiro de Rhino}
 
 \[A \approx (\frac{D}{3})^2 (9-2) = \frac{7}{9}D^2\]
 
@@ -280,6 +313,9 @@ No entanto, alternativamente:
 Como subproduto obtém-se:
 
 \[\pi \frac{\cancel{D^2}}{4} = A = (\frac{8}{9})^2.\cancel{D^2} \Rightarrow \pi \approx \frac{4.8^2}{9^2} = \frac{2^8}{9^2} = \frac{256}{81} \approx 3,16\]
+
+\newpage
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 8 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{PI AT MONTE CARLO}
 
