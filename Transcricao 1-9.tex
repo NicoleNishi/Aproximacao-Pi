@@ -29,6 +29,7 @@
 
 \textbf{Definição:}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figura 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure} [h!]
     \begin{minipage}[!] {0.4\linewidth}
         \begin{tikzpicture}
@@ -50,6 +51,7 @@
         
             \draw[thick] (2, -2) circle (2);
         \end{tikzpicture}
+        \caption{}
     \end{minipage}
     \begin{minipage} [!] {0.4\linewidth}
         \[\pi = \frac {C} {D}\]
@@ -60,6 +62,7 @@
     \end{minipage}
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figura 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure} [h!]
     \begin{minipage}[!] {0.4\linewidth}
         \begin{tikzpicture}
@@ -78,6 +81,7 @@
         \draw[loosely dotted] (V) -- (W);
     
         \end{tikzpicture}
+        \caption{}
     \end{minipage}
     \begin{minipage} [!] {0.4\linewidth}
         \[4l < C < 4L = 4D\]
@@ -94,10 +98,10 @@
     \end{minipage}
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figura 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure} [h!]
     \begin{minipage}[!] {0.4\linewidth}
         \begin{tikzpicture}
-            % Coordenadas dos vértices do triângulo
             \coordinate (A) at (0, 0);
             \coordinate (B) at (-1, 1.75);
             \coordinate (C) at (1, 1.75);
@@ -117,6 +121,7 @@
             \draw[loosely dotted] (T) -- (U);
             \draw[loosely dotted] (V) -- (W);
         \end{tikzpicture}
+        \caption{}
     \end{minipage}
     \begin{minipage}[!] {0.4\linewidth}
         \[6\alpha = 2\pi \Rightarrow \alpha = \frac{\cancel{2}\pi}{\cancel{6}} = \frac{\pi}{3}\]
@@ -125,12 +130,12 @@
 
         \[\alpha + 2 \beta = \pi \Rightarrow \cancel{2}\beta = \pi - \alpha = \pi - \frac{\pi}{3} = \cancel{2}\frac{\pi}{3} \Rightarrow \beta = \frac{\pi}{3}\]
 
-
         {$\therefore \alpha = \beta \Rightarrow$ Triângulo equilátero $\Rightarrow l= \frac{D}{2}$}
     \end{minipage}
 \end{figure} \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figura 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure} [h!]
     \begin{minipage}[!] {0.4\linewidth}
         \begin{tikzpicture}
@@ -151,6 +156,7 @@
             \draw[loosely dotted] (V) -- (W);
         
         \end{tikzpicture}
+        \caption{}
     \end{minipage}
     \begin{minipage}[!] {0.4\linewidth}
         \[L^2 = (\frac{D}{2})^2 + (\frac{L}{2})^2 = \frac{D^2}{4} + \frac{L^2}{4}\]
@@ -183,6 +189,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{DUPLICAÇÃO DO QUADRADO}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figura 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure} [h!]
     \begin{minipage}[!] {0.4\linewidth}
         \begin{tikzpicture}
@@ -196,6 +203,7 @@
             \draw[loosely dotted] (\side/2,0) -- (\side/2,\side);
             \draw[thick] (0,\side/2) -- (\side,\side/2);
         \end{tikzpicture}
+        \caption{}
     \end{minipage}
     \begin{minipage}[!] {0.4\linewidth}
         {Pelo Teorema de Pitágoras, tem-se}
@@ -211,19 +219,43 @@
 
 \[nu = l\]
 
-\[\therefore 2 = \frac{L^2}{l^2} = \frac{m^2 \cancel{u^2}}{n^2 \cancel{u^2}} = (\frac{m}{n})^2\]
+\[\therefore 2 = \frac{L^2}{l^2} = \frac{m^2 \cancel{u^2}}{n^2 \cancel{u^2}} = (\frac{m}{n})^2\] \newline
 
-{Teorema: Não existe nenhum número racional r tal que $r^2 = 2$}
+{Teorema: Não existe nenhum número racional r tal que $r^2 = 2$} \newline
 
 {Demonstração: Por redução ao absurdo, suponha $r= \frac{m}{n}$ tal que:}
 
-\[2=r^2 = \frac{m^2}{n^2} \Rightarrow 2n = \frac{m^2}{n} \Rightarrow 2n - m = \frac{m^2}{n} - m\frac{n}{n} = \frac{m}{n} (m-n) \Rightarrow \frac{2n-m}{m-n} = \frac{m}{n}\]
+\[2=r^2 = \frac{m^2}{n^2} \Rightarrow 2n = \frac{m^2}{n} \Rightarrow \]
 
-{Agora, observe que:}
-\[\frac{m}{2} < n \Rightarrow m < 2n\]
+\[\Rightarrow 2n - m = \frac{m^2}{n} - m\frac{n}{n} = \frac{m}{n} (m-n) \Rightarrow\] 
 
-\[n < \frac{m}{2} + \frac{m}{2} = m\]
+\[\Rightarrow \frac{2n-m}{m-n} = \frac{m}{n}\]
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figura 6 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure} [h!]
+    \begin{minipage}[!] {0.4\linewidth}
+        \begin{tikzpicture}
+            \coordinate[label=right:$m$] (m) at (2,4.5);
+            \coordinate[label=left:$n$] (n) at (3.7,3.5);
+            \coordinate[label=left:$\frac{m}{2}$] (M) at (3,1.5);
+        
+            \def\side{4}
+            \draw[thick] (0,0) -- (\side,0) -- (\side,\side) -- (0,\side) -- cycle;
+            \draw[thick] (\side/2,0) -- (\side,\side/2) -- (\side/2, \side) -- (0, \side/2) -- cycle;
+            \draw[loosely dotted] (2, 2) -- (4, 2) -- (2, 4) -- cycle;
+            
+        \end{tikzpicture}
+        \caption{}
+    \end{minipage}
+    \begin{minipage}[!] {0.4\linewidth}
+        {Agora, observe que:}
+        \[\frac{m}{2} < n \Rightarrow m < 2n\]
+
+        \[n < \frac{m}{2} + \frac{m}{2} = m\]
+    \end{minipage}
+\end{figure} 
+
+\newpage
 {$\therefore 2n-m > 0$ e $ m-n > 0$ são inteiros \underline{positivos}. Além disso, tem-se:}
 
 \[n < m < 2n \Rightarrow 0 < m-n < n\]
@@ -242,42 +274,162 @@ Agora, observe que:
 
 \begin{center}
 $\frac{m^2}{n^2} = 2 \Rightarrow m^2 = 2n^2$ par 
+\newline
 
 $m = 2k + 1 \Rightarrow m^2 = 4k^2 + 4k + 1 = 2k(2k + 2) + 1$ Ímpar, \underline{absurdo!}
 
 {m = 2k par}
 
 $\therefore m^2 = (2k)^2 = \cancel{4}k^2 = \cancel{2}n^2 = 2k^2$ par $\Rightarrow$ n par
+\newline
 
 $\therefore n = 2h \wedge  m = 2k \Rightarrow (m,n) \ge 2$, \underline{absurdo!}
+\newline
 \end{center}
 
 \underline{Colorário:} Ou a duplicação do quadrado é impossível (falso) ou existem magnitudes \underline{incomensuráveis}.
+\newline
 
 Teorema: se N não é um quadrado perfeito, então $\sqrt{N}$ é irracional.
+\newline
 
 Demonstração: Se $\sqrt{N} = \frac{m}{n} \Rightarrow N = \frac{m^2}{n^2} \Rightarrow m^2 = Nn^2 = Nn.n \Rightarrow n | m^2 = m.m \Rightarrow n | m$ se (m, n) = 1 
+\newline
 
 Agora dado que obviamente n | n segue que (m,n) $\ge$ n
+\newline
 
 $\therefore$ \underline{absurdo} ou n = 1 em cujo caso $N = m^2$ quadrado perfeito
 
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{àrea do Círculo}
+\section{Área do Círculo}
 
-$\pi = \frac{C}{D}$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figura 7 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure} [h!]
+    \begin{minipage}[!] {0.4\linewidth}
+        \begin{tikzpicture}
+            \coordinate[label=right:$C$] (C) at (0,2.5);
+            \coordinate[label=right:$D$] (D) at (0,-1);
+        
+            \draw[thick] (0, 0) circle (2);
+            
+            \draw[thick] (T) -- (U);
+            \draw[thick] (V) -- (W);
+        \end{tikzpicture}
+        \caption{}
+    \end{minipage}
+    \begin{minipage}[!] {0.4\linewidth}
+        $\pi = \frac{C}{D}$
+    \end{minipage}
+\end{figure}
 
-$\approx\frac{C}{2}.\frac{D}{2}$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figura 8 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure} [h!]
+    
+    \begin{minipage}[!] {0.4\linewidth}
+        \begin{tikzpicture}
+            \def\R{1}
+            
+            \coordinate(N) at (0,0);
+            \coordinate(O) at (1,-2);
+            \coordinate(P) at (2,0);
+            \coordinate(Q) at (3,-2);
+            \coordinate(R) at (4,0);
+            \coordinate(S) at (5,-2);
+            \coordinate[label=right:$\frac{D}{2}$] (D) at (-0.5,-1);
+            \coordinate[label=right:$\frac{C}{2}$] (C) at (2,1.5);
 
-$\approx\frac{C}{2}.\frac{D}{2}$
+            \draw[] (N) -- (O);
+            \draw[] (O) -- (P);
+            \draw[] (P) -- (Q);
+            \draw[] (Q) -- (R);
+            \draw[] (R) -- (S);
+
+            \draw[thick] (2,0) arc[start angle=0, end angle=180, radius=\R];
+            \draw[thick] (1,-2) arc[start angle=180, end angle=360, radius=\R];
+            \draw[thick] (4,0) arc[start angle=0, end angle=180, radius=\R];
+            \draw[thick] (3,-2) arc[start angle=180, end angle=360, radius=\R];
+            
+        \end{tikzpicture}
+        \caption{}
+    \end{minipage}
+    \begin{minipage}[!] {0.4\linewidth}
+        $\approx\frac{C}{2}.\frac{D}{2}$
+    \end{minipage}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figura 9 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure} [h!]
+    \begin{minipage}[!] {0.3\linewidth}
+        \begin{tikzpicture}
+        
+        \draw[thick] (0,0) circle (2);
+        
+        \foreach \i in {0,1,...,7} {
+            \draw[thick] (0,0) -- ({2*cos(360*\i/8)}, {2*sin(360*\i/8)});
+            \draw[thick] (0,0) -- ({2*cos(360*(\i+1)/8)}, {2*sin(360*(\i+1)/8)});
+        }
+        \end{tikzpicture}
+        \caption{}
+    \end{minipage}
+\end{figure}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figura 10 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure} [h!]
+    \begin{minipage}[!] {0.5\linewidth}
+        \begin{tikzpicture}
+            \def\R{1}
+            
+            \coordinate[label=right:$N$] (N) at (0,0);
+            \coordinate[label=right:$O$] (O) at (1,-2);
+            \coordinate[label=right:$P$] (P) at (2,0);
+            \coordinate[label=right:$Q$] (Q) at (3,-2);
+            \coordinate[label=right:$R$] (R) at (4,0);
+            \coordinate[label=right:$S$] (S) at (5,-2);
+            \coordinate[label=right:$T$] (T) at (6,0);
+            \coordinate[label=right:$U$] (U) at (7,-2);
+            \coordinate[label=right:$V$] (V) at (8,0);            \coordinate[label=right:$W$] (W) at (9,-2);
+            \coordinate[label=right:$\frac{D}{2}$] (D) at (-0.5,-1);
+            \coordinate[label=right:$\frac{C}{2}$] (C) at (4,1.5);
+
+            \draw[] (N) -- (O);
+            \draw[] (O) -- (P);
+            \draw[] (P) -- (Q);
+            \draw[] (Q) -- (R);
+            \draw[] (R) -- (S);
+            \draw[] (S) -- (T);
+            \draw[] (T) -- (U);
+            \draw[] (U) -- (V);
+            \draw[] (V) -- (W);
+
+            \draw[thick] (2,0) arc[start angle=0, end angle=180, radius=\R];
+            \draw[thick] (1,-2) arc[start angle=180, end angle=360, radius=\R];
+            \draw[thick] (4,0) arc[start angle=0, end angle=180, radius=\R];
+            \draw[thick] (3,-2) arc[start angle=180, end angle=360, radius=\R];
+            \draw[thick] (6,0) arc[start angle=0, end angle=180, radius=\R];
+            \draw[thick] (5,-2) arc[start angle=180, end angle=360, radius=\R];
+            \draw[thick] (8,0) arc[start angle=0, end angle=180, radius=\R];
+            \draw[thick] (7,-2) arc[start angle=180, end angle=360, radius=\R];
+            
+        \end{tikzpicture}
+        \caption{}
+    \end{minipage}
+    \begin{minipage}[!] {0.5\linewidth}
+        \[\approx \frac{C}{2}.\frac{D}{2}\]
+    \end{minipage}
+\end{figure}
 
 Continuando com fatias menores, tem-se:
 
 \[A = \frac{C}{2}.\frac{D}{2} = \frac{C}{D}.\frac{D^2}{4} = \pi.(\frac{D}{2})^2\]
+\newline
 
 Cálculo de $\pi$ usando áreas com hexágonos.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figura 11 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \[l = \frac{D}{2} \therefore (\frac{D^2}{2}) = (\frac{l}{2})^2 + h^2 \Rightarrow \]
 
@@ -288,6 +440,7 @@ Cálculo de $\pi$ usando áreas com hexágonos.
 \[\therefore 6.l.h\frac{1}{2} = \cancel{6} \frac{\cancel{D}}{2}.\frac{\sqrt{3}}{\cancel{4}}\cancel{D}.\frac{1}{\cancel{2}} <\pi\frac{\cancel{D^2}}{\cancel{4}}\]
 
 \[\frac{3\sqrt{3}}{2} < \pi\]
+\newline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 6 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Por outro lado, tem-se:
 
