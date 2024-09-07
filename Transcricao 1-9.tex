@@ -1,512 +1,619 @@
 \documentclass[a4paper, 12pt]{article}
 
-\usepackage[utf8]{inputenc}
-\usepackage[brazil]{babel}
-% usado para definir a língua que o documento será escrito
+\usepackage[utf8]{inputenc} %define a língua do documento
+\usepackage[brazil]{babel} % define a língua do documento
+\usepackage[T1]{fontenc} % Para acentuação
 
+% Definição do tamanho da margem de acordo com a ABNT
 \usepackage[lmargin=3cm, tmargin=3cm, rmargin=2cm, bmargin=2cm]{geometry}
-% margem
 
-\usepackage[T1]{fontenc}
+% Habilita as funções do modo matemático, para utilização de símbolos matemáticos, para usar a função cancel{}
+\usepackage{amsmath, amssymb, cancel}
 
-\usepackage{amsmath, amssymb, inputenc, cancel}
-% 
-
-\usepackage{graphicx, xcolor}
-% adicionar gráficos, adicionar cores
-
+% Usado para fazer as formas geométricas e formar ângulos
 \usepackage{tikz, tkz-euclide}
-% usado para fazer as formas geométricas
 
-\usepackage{scalerel, pict2e, tkz-euclide}
-% para ajustar a forma, melhora a qualidade da forma, usado para formar angulos
 
 \begin{document}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \section{APROXIMAÇÕES PARA $\pi$}
+    \textbf{Definição:}
+%------------------------------------- Figura 1 ----------------------------------------
+    \begin{figure} [h!]
+        \begin{minipage}[!] {0.4\linewidth}
+            \begin{tikzpicture}
+                % Marca os vértices do quadrado 
+                \coordinate (N) at (0,0);
+                \coordinate (O) at (4,0);
+                \coordinate (P) at (0,-4);
+                \coordinate (Q) at (4,-4);
 
-\section{APROXIMAÇÕES PARA $\pi$}
+                % Marca o diametro da circunferência C
+                \coordinate (R) at (0,-2);
+                \coordinate (S) at (4,-2);
+                
+                \coordinate[label=right:$L$] (L) at (2,0.5); % Largura do quadrado
+                \coordinate[label=right:$C$] (C) at (2.5,-0.5); % Circunferência 
+                \coordinate[label=right:$D$] (D) at (2,-2.5); % Diametro da circunferência C
 
-\textbf{Definição:}
+                % Desenha as arestas do quadrado
+                \draw[->] (N) -- (O);
+                \draw[->] (O) -- (Q);
+                \draw[->] (Q) -- (P);
+                \draw[->] (P) -- (N);
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figura 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure} [h!]
-    \begin{minipage}[!] {0.4\linewidth}
-        \begin{tikzpicture}
-            \coordinate (N) at (0,0);
-            \coordinate (O) at (4,0);
-            \coordinate (P) at (0,-4);
-            \coordinate (Q) at (4,-4);
-            \coordinate (R) at (0,-2);
-            \coordinate (S) at (4,-2);
-            \coordinate[label=right:$L$] (L) at (2,0.5);
-            \coordinate[label=right:$C$] (C) at (2.5,-0.5);
-            \coordinate[label=right:$D$] (D) at (2,-2.5);
-        
-            \draw[->] (N) -- (O);
-            \draw[->] (O) -- (Q);
-            \draw[->] (Q) -- (P);
-            \draw[->] (P) -- (N);
-            \draw[->] (R) -- (S);
-        
-            \draw[thick] (2, -2) circle (2);
-        \end{tikzpicture}
-        \caption{}
-    \end{minipage}
-    \begin{minipage} [!] {0.4\linewidth}
-        \[\pi = \frac {C} {D}\]
-        
-        \[2D < C < 4L = 4D\]
+                % Desenha o diametro (D) da circunferência (C)
+                \draw[->] (R) -- (S);
 
-        \[2 < \frac {C}{D} < 4 \Rightarrow 2 < \pi < 4\]
-    \end{minipage}
-\end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figura 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure} [h!]
-    \begin{minipage}[!] {0.4\linewidth}
-        \begin{tikzpicture}
-        \coordinate (T) at (-2,0);
-        \coordinate (U) at (2,0);
-        \coordinate (V) at (0,2);
-        \coordinate (W) at (0,-2);
-        \coordinate[label=right:$L$] (L) at (0,2.5);
-        \coordinate[label=left:$\frac{D}{2}$] (D) at (0,0.5);
-    
-        \draw[thick] (-2, -2) rectangle (2, 2);
-        \draw[thick] (0, 0) circle (2);
-        \draw[thick] (0, 2) -- (2, 0) -- (0, -2) -- (-2, 0) -- cycle;
-        \draw[thick] (0, 0) -- (2, 0) -- (0, 2) -- cycle;
-        \draw[loosely dotted] (T) -- (U);
-        \draw[loosely dotted] (V) -- (W);
-    
-        \end{tikzpicture}
-        \caption{}
-    \end{minipage}
-    \begin{minipage} [!] {0.4\linewidth}
-        \[4l < C < 4L = 4D\]
-
-        \[l^2 = 2(\frac{L}{2})^2 = \cancel{2}(\frac{L^2}{\cancel{4}}) = \frac{D^2}{2} \Rightarrow l =  \frac{D}{\sqrt{2}} = \frac{\sqrt{2}}{2}D\]
-
-        {Pelo Teorema de Pitágoras}
-
-        \[\therefore \cancel{4} \frac{\sqrt{2}}{\cancel{2}}D < C < 4D\]
-
-        \[2\sqrt{2} < \frac{C}{D} < 4 \Rightarrow 2\sqrt{2} < \pi < 4\]
-
-        \[\approx 2,82\]
-    \end{minipage}
-\end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figura 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure} [h!]
-    \begin{minipage}[!] {0.4\linewidth}
-        \begin{tikzpicture}
-            \coordinate (A) at (0, 0);
-            \coordinate (B) at (-1, 1.75);
-            \coordinate (C) at (1, 1.75);
-            \coordinate[label=right:$L$] (L) at (0,2.5);
-            \coordinate[label=right:$l$] (l) at (-1.5,0.7);
+                % Desenha a circunferência (C) com raio 2
+                \draw[thick] (2, -2) circle (2);
+            \end{tikzpicture}
+            \caption{}
+        \end{minipage}
+        \begin{minipage} [!] {0.4\linewidth}
+            % Mostra que pi é a razão entre a circunferência (C) e o diametro (D)
+            \[\pi = \frac {C} {D}\]
             
-            \draw[thick] (-2, -2) rectangle (2, 2);
-            \draw[thick] (0, 0) circle (2);
-            \draw[thick] (0:2) -- (60:2) -- (120:2) -- (180:2) -- (240:2) -- (300:2) -- cycle;
-            \draw[thick] (A) -- (B) -- (C) -- cycle;
+            \[2D < C < 4L = 4D\]
             
-            \draw[thick] (A) +(0.2,0.1) arc[start angle=0, end angle=100, radius=0.4];
-            \node at (0.35, -0.15) {$\alpha^\circ$};
-            \draw[thick] (B) +(0.3,-0.5) arc[start angle=-60, end angle=50, radius=0.3];
-            \node at (-1, 1.2) {$\beta^\circ$};
-        
+            \[2 < \frac {C}{D} < 4 \Rightarrow 2 < \pi < 4\]
+        \end{minipage}
+    \end{figure}
+%------------------------------------- Figura 2 ----------------------------------------
+    \begin{figure} [h!]
+        \begin{minipage}[!] {0.4\linewidth}
+            \begin{tikzpicture}
+
+            % Marca os vértices do quadrado 
+            \coordinate (T) at (-2,0);
+            \coordinate (U) at (2,0);
+            \coordinate (V) at (0,2);
+            \coordinate (W) at (0,-2);
+
+            \coordinate[label=right:$L$] (L) at (0,2.5); % Largura do quadrado maior (L)
+            \coordinate[label=left:$\frac{D}{2}$] (D) at (0,0.5); % Raio da circunferência (C)
+            \coordinate[label=left:$l$] (l) at (1.5,1); % Largura do quadrado menor (l)
+
+            \draw[thick] (-2, -2) rectangle (2, 2); % Quadrado externo
+            \draw[thick] (0, 0) circle (2); % Circunferência de raio 2
+            \draw[thick] (0, 2) -- (2, 0) -- (0, -2) -- (-2, 0) -- cycle; % Quadrado interno
+            \draw[thick] (0, 0) -- (2, 0) -- (0, 2) -- cycle; % Triangulo
+
+            % Desenha as linhas pontilhadas 
             \draw[loosely dotted] (T) -- (U);
             \draw[loosely dotted] (V) -- (W);
-        \end{tikzpicture}
-        \caption{}
-    \end{minipage}
-    \begin{minipage}[!] {0.4\linewidth}
-        \[6\alpha = 2\pi \Rightarrow \alpha = \frac{\cancel{2}\pi}{\cancel{6}} = \frac{\pi}{3}\]
+            \end{tikzpicture}
+            \caption{}
+        \end{minipage}
+        \begin{minipage} [!] {0.4\linewidth}
+            % Faz os cálculos para aproximar pi
+            \[4l < C < 4L = 4D\]
+            
+            \[l^2 = 2(\frac{L}{2})^2 = \cancel{2}(\frac{L^2}{\cancel{4}}) = \frac{D^2}{2} \Rightarrow l =  \frac{D}{\sqrt{2}} = \frac{\sqrt{2}}{2}D\]
+    
+            {Pelo Teorema de Pitágoras}
+    
+            \[\therefore \cancel{4} \frac{\sqrt{2}}{\cancel{2}}D < C < 4D\]
+            
+            \[2\sqrt{2} < \frac{C}{D} < 4 \Rightarrow 2\sqrt{2} < \pi < 4\]
+            
+            \[\approx 2,82\]
+        \end{minipage}
+    \end{figure}
+%------------------------------------- Figura 3 ----------------------------------------
+    \begin{figure} [h!]
+        \begin{minipage}[!] {0.4\linewidth}
+            \begin{tikzpicture}
+            
+                % Marca os vertices do triangulo 
+                \coordinate (A) at (0, 0);
+                \coordinate (B) at (-1, 1.75);
+                \coordinate (C) at (1, 1.75);
 
-        {Por outro lado,} 
+                \coordinate[label=right:$L$] (L) at (0,2.5); % Largura do quadrado (L)
+                \coordinate[label=right:$l$] (l) at (-1.5,0.7); % Lado do hexagono
 
-        \[\alpha + 2 \beta = \pi \Rightarrow \cancel{2}\beta = \pi - \alpha = \pi - \frac{\pi}{3} = \cancel{2}\frac{\pi}{3} \Rightarrow \beta = \frac{\pi}{3}\]
+                \draw[thick] (-2, -2) rectangle (2, 2); % Quadrado
+                \draw[thick] (0, 0) circle (2); % Circunferência
+                \draw[thick] (0:2) -- (60:2) -- (120:2) -- (180:2) -- (240:2) -- (300:2) -- cycle; % Hexagono
+                \draw[thick] (A) -- (B) -- (C) -- cycle; % Triangulo
 
-        {$\therefore \alpha = \beta \Rightarrow$ Triângulo equilátero $\Rightarrow l= \frac{D}{2}$}
-    \end{minipage}
-\end{figure} \newpage
+                % Marca os angulos alfa e beta no triangulo
+                \draw[thick] (A) +(0.2,0.1) arc[start angle=0, end angle=100, radius=0.4];
+                \node at (0.35, -0.15) {$\alpha^\circ$};
+                \draw[thick] (B) +(0.3,-0.5) arc[start angle=-60, end angle=50, radius=0.3];
+                \node at (-1, 1.2) {$\beta^\circ$};
 
+                % Desenha as retas pontilhadas
+                \draw[loosely dotted] (T) -- (U);
+                \draw[loosely dotted] (V) -- (W);
+            \end{tikzpicture}
+            \caption{}
+        \end{minipage}
+        \begin{minipage}[!] {0.4\linewidth}
+            \[6\alpha = 2\pi \Rightarrow \alpha = \frac{\cancel{2}\pi}{\cancel{6}} = \frac{\pi}{3}\]
+    
+            {Por outro lado,} 
+    
+            \[\alpha + 2 \beta = \pi \Rightarrow \cancel{2}\beta = \pi - \alpha = \pi - \frac{\pi}{3} = \cancel{2}\frac{\pi}{3} \Rightarrow \beta = \frac{\pi}{3}\]
+    
+            {$\therefore \alpha = \beta \Rightarrow$ Triângulo equilátero $\Rightarrow l= \frac{D}{2}$}
+        \end{minipage}
+    \end{figure} \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figura 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure} [h!]
-    \begin{minipage}[!] {0.4\linewidth}
-        \begin{tikzpicture}
-            \coordinate[label=right:$L$] (L) at (0,2.5);
-            \coordinate[label=left:$\frac{D}{2}$] (D) at (0,1);
-            \coordinate[label=left:$L$] (l) at (1,0.6);
-        
-            \coordinate (A) at (0, 0);
-            \coordinate (B) at (-1.25, 2.);
-            \coordinate (C) at (1.25, 2);
-        
-            \draw (0:2.35) -- (60:2.35) -- (120:2.35) -- (180:2.35) -- (240:2.35) -- (300:2.35) -- cycle;
-            \draw(0,0) circle (2);
-            \draw[thick] (-2, -2) rectangle (2, 2);
-            \draw[loosely dotted] (A) -- (B) -- (C) -- cycle;
-        
-            \draw[loosely dotted] (T) -- (U);
-            \draw[loosely dotted] (V) -- (W);
-        
-        \end{tikzpicture}
-        \caption{}
-    \end{minipage}
-    \begin{minipage}[!] {0.4\linewidth}
-        \[L^2 = (\frac{D}{2})^2 + (\frac{L}{2})^2 = \frac{D^2}{4} + \frac{L^2}{4}\]
+%------------------------------------- Figura 4 ----------------------------------------
+    \begin{figure} [h!]
+        \begin{minipage}[!] {0.4\linewidth}
+            \begin{tikzpicture}
+                \coordinate[label=right:$L$] (L) at (0,2.5); % Largura do hexagono
+                \coordinate[label=left:$\frac{D}{2}$] (D) at (0,1); % Raio da circunferência
+                \coordinate[label=left:$L$] (l) at (1,0.6); % Largura do hexagono
 
-        \[\frac{3}{\cancel{4}}L^2 = L^2 (1-\frac{1}{4}) = \frac{D^2}{\cancel{4}} \Rightarrow L = \frac{D}{\sqrt{3}}\]
-    \end{minipage}
-\end{figure}
-
-\[\therefore 6l < C < 6L\] 
-
-\[\cancel{6}\frac{D}{\cancel{2}} < C < 6\frac{D}{\sqrt{3}} = \frac{2.3}{\sqrt{3}}D = \frac{2\sqrt{3}\cancel{\sqrt{3}}}{\cancel{\sqrt{3}}}D\]
-
-\[3 < \frac{C}{D} < 2\sqrt{3} \Rightarrow 3 < \pi < 2\sqrt{3}\]
-
-\[\approx 3,46\]
-\newline
-
-{250 a.C. Arquimedes polígono 96 $(2^4.6)$ lados limite superior:}
-
-\[\pi \approx \frac{22}{7} = 3,1428571\]
-
-{265 d.C. Liu Hui polígono de 3072 $(2^9.6)$ lados} \newline
-
-{480d.C. Zu Chongzhi polígono 12288 $(2^11.6)$ lados}
-
-\[\pi \approx \frac{355}{113} = 3,1415929\]
-
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{DUPLICAÇÃO DO QUADRADO}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figura 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure} [h!]
-    \begin{minipage}[!] {0.4\linewidth}
-        \begin{tikzpicture}
-            \coordinate[label=right:$L$] (L) at (2,4.5);
-            \coordinate[label=left:$l$] (l) at (3.7,3.5);
-        
-            \def\side{4}
-            \draw[thick] (0,0) -- (\side,0) -- (\side,\side) -- (0,\side) -- cycle;
-            \draw[thick] (\side/2,0) -- (\side,\side/2) -- (\side/2, \side) -- (0, \side/2) -- cycle;
-        
-            \draw[loosely dotted] (\side/2,0) -- (\side/2,\side);
-            \draw[thick] (0,\side/2) -- (\side,\side/2);
-        \end{tikzpicture}
-        \caption{}
-    \end{minipage}
-    \begin{minipage}[!] {0.4\linewidth}
-        {Pelo Teorema de Pitágoras, tem-se}
-
-        \[l^2 = 2 (\frac{L}{2})^2 = \cancel{2} \frac{L^2}{\cancel{4}} \Rightarrow 2l^2 = L^2\] \newline
-
-    \end{minipage}
-\end{figure} 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figura 6 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{figure} [h!]
-    \begin{minipage}[!] {0.4\linewidth}
-        \begin{tikzpicture}
-
-        \coordinate (A) at (0, 0); 
-        \coordinate (B) at (4, 0); 
-        \coordinate (C) at (0, 3); 
-        \coordinate[label=left:$1$] (1) at (0,1.5);
-        \coordinate[label=left:$1$] (1) at (2,-0.5);
-        \coordinate[label=left:$\sqrt{2}$] (H) at (3,2);
-        
-        \draw[thick] (A) -- (B) -- (C) -- cycle;
-
-        \end{tikzpicture}
-        \caption{}
-    \end{minipage}
-    \begin{minipage}[!] {0.4\linewidth}
-        {Como medir?}
-
-        \[mu = L\]
-
-        \[nu = l\]
-
-        \[\therefore 2 = \frac{L^2}{l^2} = \frac{m^2 \cancel{u^2}}{n^2 \cancel{u^2}} = (\frac{m}{n})^2\] \newline
-    \end{minipage}
-\end{figure} 
-
-{Teorema: Não existe nenhum número racional r tal que $r^2 = 2$} \newline
-
-{Demonstração: Por redução ao absurdo, suponha $r= \frac{m}{n}$ tal que:}
-
-\[2=r^2 = \frac{m^2}{n^2} \Rightarrow 2n = \frac{m^2}{n} \Rightarrow \]
-
-\[\Rightarrow 2n - m = \frac{m^2}{n} - m\frac{n}{n} = \frac{m}{n} (m-n) \Rightarrow\] 
-
-\[\Rightarrow \frac{2n-m}{m-n} = \frac{m}{n}\]
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figura 7 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure} [h!]
-    \begin{minipage}[!] {0.4\linewidth}
-        \begin{tikzpicture}
-            \coordinate[label=right:$m$] (m) at (2,4.5);
-            \coordinate[label=left:$n$] (n) at (3.7,3.5);
-            \coordinate[label=left:$\frac{m}{2}$] (M) at (3,1.5);
-        
-            \def\side{4}
-            \draw[thick] (0,0) -- (\side,0) -- (\side,\side) -- (0,\side) -- cycle;
-            \draw[thick] (\side/2,0) -- (\side,\side/2) -- (\side/2, \side) -- (0, \side/2) -- cycle;
-            \draw[loosely dotted] (2, 2) -- (4, 2) -- (2, 4) -- cycle;
+                % Marca os vertices do triangulo pontilhado
+                \coordinate (A) at (0, 0);
+                \coordinate (B) at (-1.25, 2.);
+                \coordinate (C) at (1.25, 2);
             
-        \end{tikzpicture}
-        \caption{}
-    \end{minipage}
-    \begin{minipage}[!] {0.4\linewidth}
-        {Agora, observe que:}
-        \[\frac{m}{2} < n \Rightarrow m < 2n\]
+                \draw (0:2.35) -- (60:2.35) -- (120:2.35) -- (180:2.35) -- (240:2.35) -- (300:2.35) -- cycle; % Hexagono
+                \draw(0,0) circle (2); % Circunferência
+                \draw[thick] (-2, -2) rectangle (2, 2); % Quadrado
+                \draw[loosely dotted] (A) -- (B) -- (C) -- cycle; % Triangulo
 
-        \[n < \frac{m}{2} + \frac{m}{2} = m\]
-    \end{minipage}
-\end{figure} 
-
-\newpage
-{$\therefore 2n-m > 0$ e $ m-n > 0$ são inteiros \underline{positivos}. Além disso, tem-se:}
-
-\[n < m < 2n \Rightarrow 0 < m-n < n\]
-
-\[n < m < 2n \Rightarrow 2n < 2m = m + m \Rightarrow 2n - m < m\]
-
-
-{$\therefore m, 2n-m,...$ é uma sequência estritamente decrescente de inteiros positivos, \underline{absurdo!}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{PROVA ALTERNATIVA:} 
-
-{Seja $(\frac{m}{n})^2 = 2$ e suponha, sem perda de generalidade, que m e n são coprimos, ou seja, $(m,n)=1$}
-
-Agora, observe que:
-
-\begin{center}
-$\frac{m^2}{n^2} = 2 \Rightarrow m^2 = 2n^2$ par 
-\newline
-
-$m = 2k + 1 \Rightarrow m^2 = 4k^2 + 4k + 1 = 2k(2k + 2) + 1$ Ímpar, \underline{absurdo!}
-
-{m = 2k par}
-
-$\therefore m^2 = (2k)^2 = \cancel{4}k^2 = \cancel{2}n^2 = 2k^2$ par $\Rightarrow$ n par
-\newline
-
-$\therefore n = 2h \wedge  m = 2k \Rightarrow (m,n) \ge 2$, \underline{absurdo!}
-\newline
-\end{center}
-
-\underline{Colorário:} Ou a duplicação do quadrado é impossível (falso) ou existem magnitudes \underline{incomensuráveis}.
-\newline
-
-Teorema: se N não é um quadrado perfeito, então $\sqrt{N}$ é irracional.
-\newline
-
-Demonstração: Se $\sqrt{N} = \frac{m}{n} \Rightarrow N = \frac{m^2}{n^2} \Rightarrow m^2 = Nn^2 = Nn.n \Rightarrow n | m^2 = m.m \Rightarrow n | m$ se (m, n) = 1 
-\newline
-
-Agora dado que obviamente n | n segue que (m,n) $\ge$ n
-\newline
-
-$\therefore$ \underline{absurdo} ou n = 1 em cujo caso $N = m^2$ quadrado perfeito
-
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Área do Círculo}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figura 8 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure} [h!]
-    \begin{minipage}[!] {0.4\linewidth}
-        \begin{tikzpicture}
-            \coordinate[label=right:$C$] (C) at (0,2.5);
-            \coordinate[label=right:$D$] (D) at (0,-1);
-        
-            \draw[thick] (0, 0) circle (2);
+                % Desenha as linhas pontilhadas 
+                \draw[loosely dotted] (T) -- (U);
+                \draw[loosely dotted] (V) -- (W);
             
-            \draw[thick] (T) -- (U);
-            \draw[thick] (V) -- (W);
-        \end{tikzpicture}
-        \caption{}
-    \end{minipage}
-    \begin{minipage}[!] {0.4\linewidth}
-        $\pi = \frac{C}{D}$
-    \end{minipage}
-\end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figura 9 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure} [h!]
+            \end{tikzpicture}
+            \caption{}
+        \end{minipage}
+        \begin{minipage}[!] {0.4\linewidth}
+            \[L^2 = (\frac{D}{2})^2 + (\frac{L}{2})^2 = \frac{D^2}{4} + \frac{L^2}{4}\]
+            
+            \[\frac{3}{\cancel{4}}L^2 = L^2 (1-\frac{1}{4}) = \frac{D^2}{\cancel{4}} \Rightarrow L = \frac{D}{\sqrt{3}}\]
+        \end{minipage}
+    \end{figure}
     
-    \begin{minipage}[!] {0.4\linewidth}
-        \begin{tikzpicture}
-            \def\R{1}
+    \[\therefore 6l < C < 6L\] 
+    
+    \[\cancel{6}\frac{D}{\cancel{2}} < C < 6\frac{D}{\sqrt{3}} = \frac{2.3}{\sqrt{3}}D = \frac{2\sqrt{3}\cancel{\sqrt{3}}}{\cancel{\sqrt{3}}}D\]
+    
+    \[3 < \frac{C}{D} < 2\sqrt{3} \Rightarrow 3 < \pi < 2\sqrt{3}\]
+    
+    \[\approx 3,46\]
+    \newline
+
+    % Linha do tempo das aproximações de pi
+    {250 a.C. Arquimedes polígono 96 $(2^4.6)$ lados limite superior:}
+    
+    \[\pi \approx \frac{22}{7} = 3,1428571\]
+    
+    {265 d.C. Liu Hui polígono de 3072 $(2^9.6)$ lados} \newline
+    
+    {480d.C. Zu Chongzhi polígono 12288 $(2^11.6)$ lados}
+    
+    \[\pi \approx \frac{355}{113} = 3,1415929\]
+    
+    \newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \section{DUPLICAÇÃO DO QUADRADO}
+%------------------------------------- Figura 5 ----------------------------------------
+    \begin{figure} [h!]
+        \begin{minipage}[!] {0.4\linewidth}
+            \begin{tikzpicture}
+                \coordinate[label=right:$L$] (L) at (2,4.5); % Largura do quadrado externo
+                \coordinate[label=left:$l$] (l) at (3.7,3.5); % Largura do quadrado interno
+                
+                \def\side{4}
+                \draw[thick] (0,0) -- (\side,0) -- (\side,\side) -- (0,\side) -- cycle; % Quadrado externo
+                \draw[thick] (\side/2,0) -- (\side,\side/2) -- (\side/2, \side) -- (0, \side/2) -- cycle; % Quadrado interno
+    
+                % Desenha reta vertical e horizontal, respectivamente
+                \draw[loosely dotted] (\side/2,0) -- (\side/2,\side);
+                \draw[thick] (0,\side/2) -- (\side,\side/2);
+            \end{tikzpicture}
+            \caption{}
+        \end{minipage}
+        \begin{minipage}[!] {0.4\linewidth}
+            % Aplicação do Teorema de Pitágoras
+            {Pelo Teorema de Pitágoras, tem-se}
+    
+            \[l^2 = 2 (\frac{L}{2})^2 = \cancel{2} \frac{L^2}{\cancel{4}} \Rightarrow 2l^2 = L^2\] \newline
+    
+        \end{minipage}
+    \end{figure} 
+%------------------------------------- Figura 6 ----------------------------------------
+    \begin{figure} [h!]
+        \begin{minipage}[!] {0.4\linewidth}
+            \begin{tikzpicture}
+
+            % Marca os vértices do triângulo retangulo
+            \coordinate (A) at (0, 0); 
+            \coordinate (B) at (4, 0); 
+            \coordinate (C) at (0, 3); 
+
+            % Marca os valores de cada aresta 
+            \coordinate[label=left:$1$] (1) at (0,1.5);
+            \coordinate[label=left:$1$] (1) at (2,-0.5);
+            \coordinate[label=left:$\sqrt{2}$] (H) at (3,2);
             
-            \coordinate(N) at (0,0);
-            \coordinate(O) at (1,-2);
-            \coordinate(P) at (2,0);
-            \coordinate(Q) at (3,-2);
-            \coordinate(R) at (4,0);
-            \coordinate(S) at (5,-2);
-            \coordinate[label=right:$\frac{D}{2}$] (D) at (-0.5,-1);
-            \coordinate[label=right:$\frac{C}{2}$] (C) at (2,1.5);
-
-            \draw[] (N) -- (O);
-            \draw[] (O) -- (P);
-            \draw[] (P) -- (Q);
-            \draw[] (Q) -- (R);
-            \draw[] (R) -- (S);
-
-            \draw[thick] (2,0) arc[start angle=0, end angle=180, radius=\R];
-            \draw[thick] (1,-2) arc[start angle=180, end angle=360, radius=\R];
-            \draw[thick] (4,0) arc[start angle=0, end angle=180, radius=\R];
-            \draw[thick] (3,-2) arc[start angle=180, end angle=360, radius=\R];
+            \draw[thick] (A) -- (B) -- (C) -- cycle; % Desenha o triangulo
+            \end{tikzpicture}
+            \caption{}
+        \end{minipage}
+        \begin{minipage}[!] {0.4\linewidth}
+            {Como medir?}
+    
+            \[mu = L\]
+    
+            \[nu = l\]
+    
+            \[\therefore 2 = \frac{L^2}{l^2} = \frac{m^2 \cancel{u^2}}{n^2 \cancel{u^2}} = (\frac{m}{n})^2\] \newline
+        \end{minipage}
+    \end{figure} 
+    
+    {Teorema: Não existe nenhum número racional r tal que $r^2 = 2$} \newline
+    
+    {Demonstração: Por redução ao absurdo, suponha $r= \frac{m}{n}$ tal que:}
+    
+    \[2=r^2 = \frac{m^2}{n^2} \Rightarrow 2n = \frac{m^2}{n} \Rightarrow \]
+    
+    \[\Rightarrow 2n - m = \frac{m^2}{n} - m\frac{n}{n} = \frac{m}{n} (m-n) \Rightarrow\] 
+    
+    \[\Rightarrow \frac{2n-m}{m-n} = \frac{m}{n}\]
+%------------------------------------- Figura 7 ----------------------------------------
+    \begin{figure} [h!]
+        \begin{minipage}[!] {0.4\linewidth}
+            \begin{tikzpicture}
+                
+                \coordinate[label=right:$m$] (m) at (2,4.5); % Largura do quadrado externo
+                \coordinate[label=left:$n$] (n) at (3.7,3.5); % Largura do quadrado interno
+                \coordinate[label=left:$\frac{m}{2}$] (M) at (3,1.5); 
             
-        \end{tikzpicture}
-        \caption{}
-    \end{minipage}
-    \begin{minipage}[!] {0.4\linewidth}
-        $\approx\frac{C}{2}.\frac{D}{2}$
-    \end{minipage}
-\end{figure}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figura 10 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure} [h!]
-    \begin{minipage}[!] {0.3\linewidth}
-        \begin{tikzpicture}
-        
-        \draw[thick] (0,0) circle (2);
-        
-        \foreach \i in {0,1,...,7} {
-            \draw[thick] (0,0) -- ({2*cos(360*\i/8)}, {2*sin(360*\i/8)});
-            \draw[thick] (0,0) -- ({2*cos(360*(\i+1)/8)}, {2*sin(360*(\i+1)/8)});
-        }
-        \end{tikzpicture}
-        \caption{}
-    \end{minipage}
-\end{figure}
-\newpage
+                \def\side{4}
+                \draw[thick] (0,0) -- (\side,0) -- (\side,\side) -- (0,\side) -- cycle; % Quadrado externo
+                \draw[thick] (\side/2,0) -- (\side,\side/2) -- (\side/2, \side) -- (0, \side/2) -- cycle; % Quadrado interno
+                \draw[loosely dotted] (2, 2) -- (4, 2) -- (2, 4) -- cycle; % Triangulo retangulo pontilhado
+                
+            \end{tikzpicture}
+            \caption{}
+        \end{minipage}
+        \begin{minipage}[!] {0.4\linewidth}
+            {Agora, observe que:}
+            \[\frac{m}{2} < n \Rightarrow m < 2n\]
+    
+            \[n < \frac{m}{2} + \frac{m}{2} = m\]
+        \end{minipage}
+    \end{figure} 
+    
+    \newpage
+    {$\therefore 2n-m > 0$ e $ m-n > 0$ são inteiros \underline{positivos}. Além disso, tem-se:}
+    
+    \[n < m < 2n \Rightarrow 0 < m-n < n\]
+    
+    \[n < m < 2n \Rightarrow 2n < 2m = m + m \Rightarrow 2n - m < m\]
+    
+    
+    {$\therefore m, 2n-m,...$ é uma sequência estritamente decrescente de inteiros positivos, \underline{absurdo!}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \subsection{PROVA ALTERNATIVA:} 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figura 11 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure} [h!]
-    \begin{minipage}[!] {0.5\linewidth}
-        \begin{tikzpicture}
-            \def\R{1}
+    % Faz uma prova alternativa para a demonstração anterior
+    
+    {Seja $(\frac{m}{n})^2 = 2$ e suponha, sem perda de generalidade, que m e n são coprimos, ou seja, $(m,n)=1$}
+    
+    Agora, observe que:
+    
+    \begin{center}
+    $\frac{m^2}{n^2} = 2 \Rightarrow m^2 = 2n^2$ par 
+    \newline
+    
+    $m = 2k + 1 \Rightarrow m^2 = 4k^2 + 4k + 1 = 2k(2k + 2) + 1$ Ímpar, \underline{absurdo!}
+    
+    {m = 2k par}
+    
+    $\therefore m^2 = (2k)^2 = \cancel{4}k^2 = \cancel{2}n^2 = 2k^2$ par $\Rightarrow$ n par
+    \newline
+    
+    $\therefore n = 2h \wedge  m = 2k \Rightarrow (m,n) \ge 2$, \underline{absurdo!}
+    \newline
+    \end{center}
+    
+    \underline{Colorário:} Ou a duplicação do quadrado é impossível (falso) ou existem magnitudes \underline{incomensuráveis}.
+    \newline
+    
+    Teorema: se N não é um quadrado perfeito, então $\sqrt{N}$ é irracional.
+    \newline
+    
+    Demonstração: Se $\sqrt{N} = \frac{m}{n} \Rightarrow N = \frac{m^2}{n^2} \Rightarrow m^2 = Nn^2 = Nn.n \Rightarrow n | m^2 = m.m \Rightarrow n | m$ se (m, n) = 1 
+    \newline
+    
+    Agora dado que obviamente n | n segue que (m,n) $\ge$ n
+    \newline
+    
+    $\therefore$ \underline{absurdo} ou n = 1 em cujo caso $N = m^2$ quadrado perfeito
+    
+    \newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \section{Área do Círculo}
+
+%------------------------------------- Figura 8 ----------------------------------------
+    \begin{figure} [h!]
+        \begin{minipage}[!] {0.4\linewidth}
+            \begin{tikzpicture}
+                \coordinate[label=right:$C$] (C) at (0,2.5); % Circunferência (C)
+                \coordinate[label=right:$D$] (D) at (0,-1); Diametro (D) da circunferência (C)
             
-            \coordinate[label=right:$N$] (N) at (0,0);
-            \coordinate[label=right:$O$] (O) at (1,-2);
-            \coordinate[label=right:$P$] (P) at (2,0);
-            \coordinate[label=right:$Q$] (Q) at (3,-2);
-            \coordinate[label=right:$R$] (R) at (4,0);
-            \coordinate[label=right:$S$] (S) at (5,-2);
-            \coordinate[label=right:$T$] (T) at (6,0);
-            \coordinate[label=right:$U$] (U) at (7,-2);
-            \coordinate[label=right:$V$] (V) at (8,0);            \coordinate[label=right:$W$] (W) at (9,-2);
-            \coordinate[label=right:$\frac{D}{2}$] (D) at (-0.5,-1);
-            \coordinate[label=right:$\frac{C}{2}$] (C) at (4,1.5);
+                \draw[thick] (0, 0) circle (2); % Desenha a circunferência
 
-            \draw[] (N) -- (O);
-            \draw[] (O) -- (P);
-            \draw[] (P) -- (Q);
-            \draw[] (Q) -- (R);
-            \draw[] (R) -- (S);
-            \draw[] (S) -- (T);
-            \draw[] (T) -- (U);
-            \draw[] (U) -- (V);
-            \draw[] (V) -- (W);
+                % Desenha a linha vertical e horizontal, repectivamente
+                \draw[thick] (T) -- (U);
+                \draw[thick] (V) -- (W);
+            \end{tikzpicture}
+            \caption{}
+        \end{minipage}
+        \begin{minipage}[!] {0.4\linewidth}
+            $\pi = \frac{C}{D}$
+        \end{minipage}
+    \end{figure}
+    
+%------------------------------------- Figura 9 ----------------------------------------
+    \begin{figure} [h!]
+        \begin{minipage}[!] {0.4\linewidth}
+            \begin{tikzpicture}
+                \def\R{1}
 
-            \draw[thick] (2,0) arc[start angle=0, end angle=180, radius=\R];
-            \draw[thick] (1,-2) arc[start angle=180, end angle=360, radius=\R];
-            \draw[thick] (4,0) arc[start angle=0, end angle=180, radius=\R];
-            \draw[thick] (3,-2) arc[start angle=180, end angle=360, radius=\R];
-            \draw[thick] (6,0) arc[start angle=0, end angle=180, radius=\R];
-            \draw[thick] (5,-2) arc[start angle=180, end angle=360, radius=\R];
-            \draw[thick] (8,0) arc[start angle=0, end angle=180, radius=\R];
-            \draw[thick] (7,-2) arc[start angle=180, end angle=360, radius=\R];
-            
-        \end{tikzpicture}
-        \caption{}
-    \end{minipage}
-    \begin{minipage}[!] {0.5\linewidth}
-        \[\approx \frac{C}{2}.\frac{D}{2}\]
-    \end{minipage}
-\end{figure}
+                % Define os pontos para fazer os setores circulares
+                \coordinate(N) at (0,0);
+                \coordinate(O) at (1,-2);
+                \coordinate(P) at (2,0);
+                \coordinate(Q) at (3,-2);
+                \coordinate(R) at (4,0);
+                \coordinate(S) at (5,-2);
 
-Continuando com fatias menores, tem-se:
+                \coordinate[label=right:$\frac{D}{2}$] (D) at (-0.5,-1); % Raio da circunferênia (C)
+                \coordinate[label=right:$\frac{C}{2}$] (C) at (2,1.5); % Metade da circunferência (C)
 
-\[A = \frac{C}{2}.\frac{D}{2} = \frac{C}{D}.\frac{D^2}{4} = \pi.(\frac{D}{2})^2\]
-\newline
+                % Desenha a parte reta dos setores 
+                \draw[] (N) -- (O);
+                \draw[] (O) -- (P);
+                \draw[] (P) -- (Q);
+                \draw[] (Q) -- (R);
+                \draw[] (R) -- (S);
 
-Cálculo de $\pi$ usando áreas com hexágonos.
+                % Desenha a parte circular dos setores
+                \draw[thick] (2,0) arc[start angle=0, end angle=180, radius=\R];
+                \draw[thick] (1,-2) arc[start angle=180, end angle=360, radius=\R];
+                \draw[thick] (4,0) arc[start angle=0, end angle=180, radius=\R];
+                \draw[thick] (3,-2) arc[start angle=180, end angle=360, radius=\R];
+                
+            \end{tikzpicture}
+            \caption{}
+        \end{minipage}
+        \begin{minipage}[!] {0.4\linewidth}
+            $\approx\frac{C}{2}.\frac{D}{2}$
+        \end{minipage}
+    \end{figure}
+%------------------------------------- Figura 10 ---------------------------------------
+    \begin{figure} [h!]
+        \begin{minipage}[!] {0.3\linewidth}
+            \begin{tikzpicture}
+            \draw[thick] (0,0) circle (2); % Circunferência (C) de raio 2
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figura 12 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+            % Desenha as retas que dividem a circunferência (C) em 8 setores
+            \foreach \i in {0,1,...,7} {
+                \draw[thick] (0,0) -- ({2*cos(360*\i/8)}, {2*sin(360*\i/8)});
+                \draw[thick] (0,0) -- ({2*cos(360*(\i+1)/8)}, {2*sin(360*(\i+1)/8)});
+            }
+            \end{tikzpicture}
+            \caption{}
+        \end{minipage}
+    \end{figure}
+    \newpage
+%------------------------------------- Figura 11 ---------------------------------------
+    \begin{figure} [h!]
+        \begin{minipage}[!] {0.5\linewidth}
+            \begin{tikzpicture}
+                \def\R{1}
 
-\[l = \frac{D}{2} \therefore (\frac{D^2}{2}) = (\frac{l}{2})^2 + h^2 \Rightarrow \]
+                % Define os pontos para fazer os setores circulares
+                \coordinate[label=right:$N$] (N) at (0,0);
+                \coordinate[label=right:$O$] (O) at (1,-2);
+                \coordinate[label=right:$P$] (P) at (2,0);
+                \coordinate[label=right:$Q$] (Q) at (3,-2);
+                \coordinate[label=right:$R$] (R) at (4,0);
+                \coordinate[label=right:$S$] (S) at (5,-2);
+                \coordinate[label=right:$T$] (T) at (6,0);
+                \coordinate[label=right:$U$] (U) at (7,-2);
+                \coordinate[label=right:$V$] (V) at (8,0);            \coordinate[label=right:$W$] (W) at (9,-2);
+                \coordinate[label=right:$\frac{D}{2}$] (D) at (-0.5,-1);
+                \coordinate[label=right:$\frac{C}{2}$] (C) at (4,1.5);
 
-\[\Rightarrow h^2 = \frac{D^2}{4} - \frac{D^2}{4^2} = \frac{D^2}{4^2} (4-1) = \frac{3}{4^2}D^2\]
+                % Desenha a parte reta dos setores 
+                \draw[] (N) -- (O);
+                \draw[] (O) -- (P);
+                \draw[] (P) -- (Q);
+                \draw[] (Q) -- (R);
+                \draw[] (R) -- (S);
+                \draw[] (S) -- (T);
+                \draw[] (T) -- (U);
+                \draw[] (U) -- (V);
+                \draw[] (V) -- (W);
 
-\[\therefore h= \frac{\sqrt{3}}{4}D\]
+                % Desenha a parte circular dos setores
+                \draw[thick] (2,0) arc[start angle=0, end angle=180, radius=\R];
+                \draw[thick] (1,-2) arc[start angle=180, end angle=360, radius=\R];
+                \draw[thick] (4,0) arc[start angle=0, end angle=180, radius=\R];
+                \draw[thick] (3,-2) arc[start angle=180, end angle=360, radius=\R];
+                \draw[thick] (6,0) arc[start angle=0, end angle=180, radius=\R];
+                \draw[thick] (5,-2) arc[start angle=180, end angle=360, radius=\R];
+                \draw[thick] (8,0) arc[start angle=0, end angle=180, radius=\R];
+                \draw[thick] (7,-2) arc[start angle=180, end angle=360, radius=\R];
+                
+            \end{tikzpicture}
+            \caption{}
+        \end{minipage}
+        \begin{minipage}[!] {0.5\linewidth}
+            \[\approx \frac{C}{2}.\frac{D}{2}\]
+        \end{minipage}
+    \end{figure}
+    
+    Continuando com fatias menores, tem-se:
+    
+    \[A = \frac{C}{2}.\frac{D}{2} = \frac{C}{D}.\frac{D^2}{4} = \pi.(\frac{D}{2})^2\]
+    \newline
+    
+    Cálculo de $\pi$ usando áreas com hexágonos.
+%------------------------------------- Figura 12 ---------------------------------------
+    \begin{figure} [h!]
+        \begin{minipage}[!] {0.5\linewidth}
+            \begin{tikzpicture}
+                % Marca os vertices do triangulo 
+                \coordinate (A) at (0, 0);
+                \coordinate (B) at (-1, 1.75);
+                \coordinate (C) at (1, 1.75);
 
-\[\therefore 6.l.h\frac{1}{2} = \cancel{6} \frac{\cancel{D}}{2}.\frac{\sqrt{3}}{\cancel{4}}\cancel{D}.\frac{1}{\cancel{2}} <\pi\frac{\cancel{D^2}}{\cancel{4}}\]
+                \coordinate[label=right:$D$] (D) at (0,0); % Diametro da circunferência
+                
+                \draw[thick] (0, 0) circle (2); % Circunferência
+                \draw[thick] (0:2) -- (60:2) -- (120:2) -- (180:2) -- (240:2) -- (300:2) -- cycle; % Hexagono
+                \draw[loosely dotted] (A) -- (B) -- (C) -- cycle; % Triangulo pontilhado
 
-\[\frac{3\sqrt{3}}{2} < \pi\]
-\newline
+                % Marca a extremidades do diametro
+                \coordinate (R) at (-2,0);
+                \coordinate (S) at (2,0);
+                
+                \draw[loosely dotted] (R) -- (S); % Desenha o diametro (D)
+
+             \end{tikzpicture}
+            \caption{}
+        \end{minipage}
+        \begin{minipage}[!] {0.5\linewidth}
+            \[l = \frac{D}{2} \therefore (\frac{D^2}{2}) = (\frac{l}{2})^2 + h^2 \Rightarrow \]
+
+            \[\Rightarrow h^2 = \frac{D^2}{4} - \frac{D^2}{4^2} = \frac{D^2}{4^2} (4-1) = \frac{3}{4^2}D^2\]
+
+            \[\therefore h= \frac{\sqrt{3}}{4}D\]
+
+            \[\therefore 6.l.h\frac{1}{2} = \cancel{6} \frac{\cancel{D}}{2}.\frac{\sqrt{3}}{\cancel{4}}\cancel{D}.\frac{1}{\cancel{2}} <\pi\frac{\cancel{D^2}}{\cancel{4}}\]
+
+            \[\frac{3\sqrt{3}}{2} < \pi\]
+        \end{minipage}
+        \newline
+    \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 6 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Por outro lado, tem-se:
+    Por outro lado, tem-se:
+%------------------------------------- Figura 13 ---------------------------------------
+    \begin{figure} [h!]
+        \begin{minipage}[!] {0.5\linewidth}
+            \begin{tikzpicture}
+                \coordinate[label=right:$L$] (L) at (0,2.5); % Largura do quadrado
+                
+                % Marca os vertices do triangulo pontilhado
+                \coordinate (A) at (0, 0);
+                \coordinate (B) at (-1.25, 2.);
+                \coordinate (C) at (1.25, 2);
+                
+                \draw (0:2.35) -- (60:2.35) -- (120:2.35) -- (180:2.35) -- (240:2.35) -- (300:2.35) -- cycle; % Hexagono
+                \draw(0,0) circle (2); % Circunferência
+                \draw[loosely dotted] (A) -- (B) -- (C) -- cycle; % Triangulo pontilhado
 
-\[L= \frac{D}{\sqrt{3}}, \therefore \pi \frac{\cancel{D^2}}{4} < 6.L.h.\frac{1}{2}\]
+                % Marca a extremidades do diametro
+                \coordinate (R) at (-2.5,0);
+                \coordinate (S) at (2.5,0);
 
-\[6.\frac{\cancel{D}}{\sqrt{3}}.\frac{\cancel{D}}{\cancel{2}}.\frac{1}{\cancel{2}}\]
-
-\[\therefore \pi < \frac{6}{\sqrt{3}} = \frac{2.3}{\sqrt{3}} = \frac{2.\cancel{\sqrt{3}}.\sqrt{3}}{\cancel{\sqrt{3}}} = 2\sqrt{3}\]
-
-Desta maneira resulta:
-
-\[\frac{3\sqrt{3}}{2} \approx 2,6 < \pi < 2\sqrt{3} \approx 3,46\]
-
-\newpage
-
+                \draw[loosely dotted] (R) -- (S); % Desenha o diametro (D)
+            \end{tikzpicture}
+            \caption{}
+        \end{minipage}
+        \begin{minipage}[!] {0.5\linewidth}
+            \[L= \frac{D}{\sqrt{3}}, \therefore \pi \frac{\cancel{D^2}}{4} < 6.L.h.\frac{1}{2}\]
+    
+            \[6.\frac{\cancel{D}}{\sqrt{3}}.\frac{\cancel{D}}{\cancel{2}}.\frac{1}{\cancel{2}}\]
+    
+            \[\therefore \pi < \frac{6}{\sqrt{3}} = \frac{2.3}{\sqrt{3}} = \frac{2.\cancel{\sqrt{3}}.\sqrt{3}}{\cancel{\sqrt{3}}} = 2\sqrt{3}\]
+        \end{minipage}
+    \end{figure}
+    
+    Desta maneira resulta:
+    
+    \[\frac{3\sqrt{3}}{2} \approx 2,6 < \pi < 2\sqrt{3} \approx 3,46\]
+    
+    \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 7 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Papiro de Rhino}
+    \section{Papiro de Rhino}
+%------------------------------------- Figura 14 ---------------------------------------
+    \begin{figure} [h!]
+        \begin{minipage}[!] {0.5\linewidth}
+            \begin{tikzpicture}
+                \draw[thick] (0,0) rectangle (6,6); % Desenha o quadrado externo
 
-\[A \approx (\frac{D}{3})^2 (9-2) = \frac{7}{9}D^2\]
+                \coordinate[label=right:$D$] (D) at (3,6.5); % Largura do quadrado externo
 
-\[\therefore \pi \frac{\cancel{D^2}}{4} = A \approx \frac{7}{9} \cancel{D^2}\]
+                % Divide o quadrado em 9 partes iguais
+                \foreach \x in {2,4} {
+                    \draw[thick] (\x, 0) -- (\x, 6);
+                    \draw[thick] (0, \x) -- (6, \x);
+                }
+            
+                % Desenha o círculo inscrito no quadrado externo
+                \draw[thick] (3,3) circle (3);
 
-\[\therefore \pi \approx \frac{28}{9} = 3,1\]
+                % Desenha hexagono inscrito no quadrado externo
+                \draw[thick,rotate around={30:(3,3)}] (3,6) -- (5.598,4.5) -- (5.598,1.5) -- (3,0) -- (0.402,1.5) -- (0.402,4.5) -- cycle;
+            \end{tikzpicture}
+            \caption{}
+        \end{minipage}
+        \begin{minipage}[!] {0.5\linewidth}
+            \[A \approx (\frac{D}{3})^2 (9-2) = \frac{7}{9}D^2\]
+    
+            \[\therefore \pi \frac{\cancel{D^2}}{4} = A \approx \frac{7}{9} \cancel{D^2}\]
+    
+            \[\therefore \pi \approx \frac{28}{9} = 3,1\]
+        \end{minipage}
+    \end{figure}
+%------------------------------------- Figura 15 ---------------------------------------
+    \begin{figure} [h!]
+        \begin{minipage}[!] {0.5\linewidth}
+            \begin{tikzpicture}
+                % Desenha o quadrado externo
+                \draw[thick] (0,0) rectangle (6,6);
+    
+                % Divide o quadrado em 9 partes iguais
+                \foreach \x in {2,4} {
+                \draw[thick] (\x, 0) -- (\x, 6);  % Linhas verticais
+                \draw[thick] (0, \x) -- (6, \x);  % Linhas horizontais
+}
+                % Desenha uma diagonal cortando o quadrado externo
+                \draw[thick] (6,0) -- (0,6);
 
-\[A \approx (\frac{D}{9})^2(9^2 - \cancel{4}.\frac{9}{\cancel{2}}) = \frac{D^2}{9\cancel{^2}}\cancel{9}(9-2) = \frac{7}{9}D^2\]
-
-No entanto, 
-
-\[A \approx (\frac{D}{9}^2 (9^2-\cancel{4}.\frac{9}{\cancel{2}})) = (\frac{D^2}{9} (81-18))\]
-
-\[= (\frac{D}{9})^2.63 \approx (\frac{D}{9})^2.64=(\frac{8}{9}D)^2\]
-
-Quadratura do cículo:
-
-\[L^2 = A = \frac{7}{9}D^2 \Rightarrow L = \sqrt{\frac{7}{9}}D\]
-
-No entanto, alternativamente: 
-
-\[L^2 = A = (\frac{8}{9}D)^2 \Rightarrow L=\frac{8}{9}D\]
-
-Como subproduto obtém-se:
-
-\[\pi \frac{\cancel{D^2}}{4} = A = (\frac{8}{9})^2.\cancel{D^2} \Rightarrow \pi \approx \frac{4.8^2}{9^2} = \frac{2^8}{9^2} = \frac{256}{81} \approx 3,16\]
-
-\newpage
-
+                % Desenha o semicírculo que encosta nas diagonais do quadrado externo
+                \draw[thick] (6,0) arc[start angle=0, end angle=90, radius=6];            \end{tikzpicture}
+            \caption{}
+        \end{minipage}
+        \begin{minipage}[!] {0.5\linewidth}
+            \[A \approx (\frac{D}{9})^2(9^2 - \cancel{4}.\frac{9}{\cancel{2}}) = \frac{D^2}{9\cancel{^2}}\cancel{9}(9-2) = \frac{7}{9}D^2\]
+        \end{minipage}
+    \end{figure}
+    
+    No entanto, 
+    
+    \[A \approx (\frac{D}{9}^2 (9^2-\cancel{4}.\frac{9}{\cancel{2}})) = (\frac{D^2}{9} (81-18))\]
+    
+    \[= (\frac{D}{9})^2.63 \approx (\frac{D}{9})^2.64=(\frac{8}{9}D)^2\]
+    
+    Quadratura do cículo:
+    
+    \[L^2 = A = \frac{7}{9}D^2 \Rightarrow L = \sqrt{\frac{7}{9}}D\]
+    
+    No entanto, alternativamente: 
+    
+    \[L^2 = A = (\frac{8}{9}D)^2 \Rightarrow L=\frac{8}{9}D\]
+    
+    Como subproduto obtém-se:
+    
+    \[\pi \frac{\cancel{D^2}}{4} = A = (\frac{8}{9})^2.\cancel{D^2} \Rightarrow \pi \approx \frac{4.8^2}{9^2} = \frac{2^8}{9^2} = \frac{256}{81} \approx 3,16\]
+    
+    \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 8 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{PI AT MONTE CARLO}
 
