@@ -13,7 +13,6 @@
 % Usado para fazer as formas geométricas e formar ângulos
 \usepackage{tikz, tkz-euclide}
 
-
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \section{APROXIMAÇÕES PARA $\pi$}
@@ -63,7 +62,6 @@
     \begin{figure} [h!]
         \begin{minipage}[!] {0.4\linewidth}
             \begin{tikzpicture}
-
             % Marca os vértices do quadrado 
             \coordinate (T) at (-2,0);
             \coordinate (U) at (2,0);
@@ -104,7 +102,6 @@
     \begin{figure} [h!]
         \begin{minipage}[!] {0.4\linewidth}
             \begin{tikzpicture}
-            
                 % Marca os vertices do triangulo 
                 \coordinate (A) at (0, 0);
                 \coordinate (B) at (-1, 1.75);
@@ -225,7 +222,6 @@
     \begin{figure} [h!]
         \begin{minipage}[!] {0.4\linewidth}
             \begin{tikzpicture}
-
             % Marca os vértices do triângulo retangulo
             \coordinate (A) at (0, 0); 
             \coordinate (B) at (4, 0); 
@@ -264,7 +260,6 @@
     \begin{figure} [h!]
         \begin{minipage}[!] {0.4\linewidth}
             \begin{tikzpicture}
-                
                 \coordinate[label=right:$m$] (m) at (2,4.5); % Largura do quadrado externo
                 \coordinate[label=left:$n$] (n) at (3.7,3.5); % Largura do quadrado interno
                 \coordinate[label=left:$\frac{m}{2}$] (M) at (3,1.5); 
@@ -355,7 +350,6 @@
             $\pi = \frac{C}{D}$
         \end{minipage}
     \end{figure}
-    
 %------------------------------------- Figura 9 ----------------------------------------
     \begin{figure} [h!]
         \begin{minipage}[!] {0.4\linewidth}
@@ -615,85 +609,68 @@
     
     \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 8 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{PI AT MONTE CARLO}
-
-n= 100000
-\newline
-
-m= 1000
-
-var = numeric(m)
-
-for (i in 1:m) var[i] = single\_shot(n)
-
-single\_shot = function(n)
-\newline
-
-x= runif(n)
-
-y= runif(n)
-
-z= x.x + y.y
-
-ins= which(z<=1)
-
-pi= 4.length(ins)/n
-\newline
-
-plot(x[ins], y[ins], col= "red", pch = 19, cex =0.1, xlim=c(0,1), ylim=c(0,1))
-
-points(x[-ins], y[-ins], cd = "blue")
-\newline
-
-mean(var)
-
-sd(var) / sqrt(m)
-\newline
-
-Exercício: Determine o "valor médio" de $\pi$. Interprete estatísticamente o resultado.
-\newline
-
-Exercício: Implemente Pi via Monte Carlo em C
-\newline
+    \section{PI AT MONTE CARLO}
+    
+    n= 100000 \newline
+    
+    m= 1000
+    
+    var = numeric(m)
+    
+    for (i in 1:m) var[i] = single\_shot(n)
+    
+    single\_shot = function(n) \newline
+    
+    x= runif(n)
+    
+    y= runif(n)
+    
+    z= x.x + y.y
+    
+    ins= which(z<=1)
+    
+    pi= 4.length(ins)/n \newline
+    
+    plot(x[ins], y[ins], col= "red", pch = 19, cex =0.1, xlim=c(0,1), ylim=c(0,1))
+    
+    points(x[-ins], y[-ins], cd = "blue") \newline
+    
+    mean(var)
+    
+    sd(var) / sqrt(m) \newline
+    
+    Exercício: Determine o "valor médio" de $\pi$. Interprete estatísticamente o resultado. \newline
+    
+    Exercício: Implemente Pi via Monte Carlo em C \newline
+    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Página 9 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\#include <stdio.h> 
-
-\#include <stdlib.h> 
-
-\#include <time.h>
-\newline
-
-double x,y;
-\newline
-
-unsigned long long i, j;
-\newline
-
-j= 0;
-\newline
-
-stand(time(0));
-\newline
-
-for (i=1; i<=n; i++) \{
-
-x = (double) rand() / RAND\_MAX;
-
-y=
-\newline
-
-if(x*x + y*y <= 1) \{
-
-j += 1;
-\}
-\newline
-\}
-\newline
-
-return 4 * (double) j/n;
-\newline
-
-printf("\%1.20f$\backslash$ n", t);
-
+    \#include <stdio.h> 
+    
+    \#include <stdlib.h> 
+    
+    \#include <time.h> \newline
+    
+    double x,y; \newline
+    
+    unsigned long long i, j; \newline
+    
+    j= 0; \newline
+    
+    stand(time(0)); \newline
+    
+    for (i=1; i<=n; i++) \{
+    
+    x = (double) rand() / RAND\_MAX;
+    
+    y= \newline
+    
+    if(x*x + y*y <= 1) \{
+    
+    j += 1;
+    \} \newline
+    \} \newline
+    
+    return 4 * (double) j/n; \newline
+    
+    printf("\%1.20f$\backslash$ n", t);
 \end{document}
